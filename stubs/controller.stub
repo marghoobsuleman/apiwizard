@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ modelNamespace }}\{{ model }};
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+{{ indexMethod }}
+
+    /**
+     * Display the specified resource.
+     */
+{{ showMethod }}
+
+    /**
+     * Store a newly created resource in storage.
+     */
+{{ storeMethod }}
+
+    /**
+     * Update the specified resource in storage.
+     */
+{{ updateMethod }}
+
+    /**
+     * Remove the specified resource from storage.
+     */
+{{ destroyMethod }}
+}
