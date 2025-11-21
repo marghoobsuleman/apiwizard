@@ -19,8 +19,8 @@ A powerful Laravel package that generates models, relations, and complete REST A
 
 ## 📋 Requirements
 
-- PHP 8.0 or higher
-- Laravel 9.x, 10.x, or 11.x
+- PHP 8.2 or higher
+- Laravel 11.x or 12.x
 
 ## 📦 Installation
 
