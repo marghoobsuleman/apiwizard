@@ -7,6 +7,14 @@ use MarghoobSuleman\APIWizard\APIWizardServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
+    /**
+     * The latest response from the application.
+     * This property is required for Orchestra Testbench v9 compatibility.
+     *
+     * @var \Illuminate\Testing\TestResponse|null
+     */
+    public static $latestResponse;
+
     protected function setUp(): void
     {
         parent::setUp();
