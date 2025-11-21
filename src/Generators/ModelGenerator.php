@@ -134,10 +134,22 @@ class ModelGenerator
         $methodName = $this->getRelationMethodName($relatedModel, $relationType);
 
         $template = match ($relationType) {
-            'hasOne' => "    public function {$methodName}()\n    {\n        return \$this->hasOne({$relatedModel}::class);\n    }",
-            'hasMany' => "    public function {$methodName}()\n    {\n        return \$this->hasMany({$relatedModel}::class);\n    }",
-            'belongsTo' => "    public function {$methodName}()\n    {\n        return \$this->belongsTo({$relatedModel}::class);\n    }",
-            'belongsToMany' => "    public function {$methodName}()\n    {\n        return \$this->belongsToMany({$relatedModel}::class);\n    }",
+            'hasOne' => "    public function {$methodName}()\n" .
+            "    {\n" .
+            "        return \$this->hasOne({$relatedModel}::class);\n" .
+            "    }",
+            'hasMany' => "    public function {$methodName}()\n" .
+            "    {\n" .
+            "        return \$this->hasMany({$relatedModel}::class);\n" .
+            "    }",
+            'belongsTo' => "    public function {$methodName}()\n" .
+            "    {\n" .
+            "        return \$this->belongsTo({$relatedModel}::class);\n" .
+            "    }",
+            'belongsToMany' => "    public function {$methodName}()\n" .
+            "    {\n" .
+            "        return \$this->belongsToMany({$relatedModel}::class);\n" .
+            "    }",
             default => '',
         };
 

@@ -15,7 +15,8 @@ class APIWizardServiceProvider extends ServiceProvider
     {
         // Merge package configuration
         $this->mergeConfigFrom(
-            __DIR__.'/../config/apiwizard.php', 'apiwizard'
+            __DIR__ . '/../config/apiwizard.php',
+            'apiwizard'
         );
     }
 
@@ -33,12 +34,12 @@ class APIWizardServiceProvider extends ServiceProvider
 
             // Publish configuration
             $this->publishes([
-                __DIR__.'/../config/apiwizard.php' => config_path('apiwizard.php'),
+                __DIR__ . '/../config/apiwizard.php' => config_path('apiwizard.php'),
             ], 'apiwizard-config');
 
             // Publish stubs
             $this->publishes([
-                __DIR__.'/../stubs' => base_path('stubs/apiwizard'),
+                __DIR__ . '/../stubs' => base_path('stubs/apiwizard'),
             ], 'apiwizard-stubs');
         }
     }

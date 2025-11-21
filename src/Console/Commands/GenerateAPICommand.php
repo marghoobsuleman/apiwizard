@@ -97,7 +97,7 @@ class GenerateAPICommand extends Command
     {
         // Ask for table name
         $this->tableName = $this->ask('Enter table name');
-        
+
         if (empty($this->tableName)) {
             $this->error('Table name is required!');
             return self::FAILURE;
@@ -135,7 +135,7 @@ class GenerateAPICommand extends Command
     {
         do {
             $relatedTable = $this->ask('Enter related table name');
-            
+
             if (empty($relatedTable)) {
                 break;
             }
@@ -170,7 +170,7 @@ class GenerateAPICommand extends Command
         try {
             // Generate main model
             $modelGenerator = new ModelGenerator($this->modelName, $this->tableName);
-            
+
             if ($this->hasTransform) {
                 $modelGenerator->withTransform(true);
             }
@@ -260,7 +260,12 @@ class GenerateAPICommand extends Command
             [
                 ['Table', $this->tableName],
                 ['Model', $this->modelName],
-                ['Relations', count($this->relations) > 0 ? implode(', ', array_map(fn($r) => "{$r['table']} ({$r['type']})", $this->relations)) : 'None'],
+                [
+                    'Relations',
+                    count($this->relations) > 0
+                    ? implode(', ', array_map(fn($r) => "{$r['table']} ({$r['type']})", $this->relations))
+                    : 'None'
+                ],
                 ['Transform', $this->hasTransform ? 'Yes' : 'No'],
                 ['API Endpoint', $this->createAPI ? $this->endpoint : 'Not created'],
             ]

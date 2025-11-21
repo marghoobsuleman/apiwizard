@@ -3,6 +3,7 @@
 namespace MarghoobSuleman\APIWizard\Tests\Feature;
 
 use MarghoobSuleman\APIWizard\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\File;
 
 class GenerateAPICommandTest extends TestCase
@@ -37,7 +38,7 @@ class GenerateAPICommandTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_model_with_non_interactive_mode()
     {
         $this->artisan('apiwizard:generate', [
@@ -48,7 +49,7 @@ class GenerateAPICommandTest extends TestCase
         $this->assertTrue(File::exists(app_path('Models/TestModel.php')));
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_model_with_relations()
     {
         $this->artisan('apiwizard:generate', [
@@ -62,7 +63,7 @@ class GenerateAPICommandTest extends TestCase
         $this->assertStringContainsString('hasMany', $modelContent);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_model_with_transform_method()
     {
         $this->artisan('apiwizard:generate', [
@@ -75,7 +76,7 @@ class GenerateAPICommandTest extends TestCase
         $this->assertStringContainsString('function transform()', $modelContent);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_complete_api()
     {
         $this->artisan('apiwizard:generate', [
@@ -87,7 +88,7 @@ class GenerateAPICommandTest extends TestCase
         $this->assertTrue(File::exists(app_path('Http/Controllers/API/TestModelController.php')));
     }
 
-    /** @test */
+    #[Test]
     public function it_requires_table_name_in_non_interactive_mode()
     {
         $this->artisan('apiwizard:generate')
